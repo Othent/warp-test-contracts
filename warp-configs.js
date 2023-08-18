@@ -1,13 +1,13 @@
-import { WarpFactory } from 'warp-contracts';
+import { WarpFactory, defaultCacheOptions } from 'warp-contracts';
 import { DeployPlugin, ArweaveSigner } from 'warp-contracts-plugin-deploy';
 
 
 async function warp(network) {
     if (network === 'mainNet') {
-        const warp = WarpFactory.forMainnet().use(new DeployPlugin())
+        const warp = WarpFactory.forMainnet({ ...defaultCacheOptions, dbLocation: './cache/warp/mainNet' }).use(new DeployPlugin())
         return warp
     } else if (network === 'testNet') {
-        const warp = WarpFactory.forTestnet().use(new DeployPlugin())
+        const warp = WarpFactory.forTestnet({ ...defaultCacheOptions, dbLocation: './cache/warp/testNet' }).use(new DeployPlugin())
         return warp
     } else {
         throw new Error('Error init warp!')
