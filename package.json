@@ -21,6 +21,7 @@
     "react-markdown": "^8.0.7",
     "uuid": "^9.0.0",
     "warp-contracts": "^1.4.16",
+    "warp-contracts-lmdb": "^1.1.10",
     "warp-contracts-plugin-deploy": "^1.0.9"
   }
 }
